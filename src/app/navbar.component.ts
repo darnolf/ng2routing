@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { JQ_TOKEN } from './jQuery.service'
 
 @Component({
   selector: 'nav-bar',
@@ -11,7 +12,14 @@ import { Component } from '@angular/core';
   `]
 
 })
-export class NavBarComponent  {
 
+
+export class NavBarComponent implements OnInit {
+
+ constructor(@Inject(JQ_TOKEN) private $: any) {}
+
+ ngOnInit() {
+   //this.$('.navbar.navbar-default li a').css({'background':'teal', 'color': 'white'});
+ }
     
 }
